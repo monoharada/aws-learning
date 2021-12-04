@@ -11,11 +11,11 @@ type Props = {timestamp: number}
   const [count, setCount] = useRecoilState(countState);
   const [user, setUser] = useRecoilState(userState);
 
-  const increment = c => {
+  const increment = (c: number) => {
     return c + 1;
   }
 
-  const updateUser = u => {
+  const updateUser = (u: {name:string,age:number}) => {
     return { ...u, ...{ age: u.age + 1 } };
   }
    return (
