@@ -3,8 +3,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
+import { useRecoilValue } from "recoil";
+import { countState, userState } from "../components/atoms";
 
 const Home: NextPage = () => {
+  const count = useRecoilValue(countState);
+    const user = useRecoilValue(userState);
   return (
     <div className={styles.container}>
       <Head>
@@ -17,6 +21,9 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <Link href="/isr/">Next.js!</Link>
         </h1>
+        <p>count:{count}</p>
+                <p>user.name:{user.name}</p>
+                <p>user.age:{user.age}</p>
 
         <p className={styles.description}>
           Get started by editing{' '}
